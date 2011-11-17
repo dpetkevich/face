@@ -5,7 +5,7 @@
 
 var express = require( 'express' )
 	, mongoose = require( 'mongoose' )
-	, router = require( './router' );
+	, routes = require( './routes.js' );
 
 var app = module.exports = express.createServer();
 
@@ -33,14 +33,11 @@ app.configure( 'production', function () {
 } );
 
 
-
-
-// Routes
-
-for ( var i = 0; i < router.length; i++ ) {
-	var method = router[ i ][ "method" ];
-	var path = router[ i ][ "path" ];
-	var handler = router[ i ][ "handler" ];
+// Attach routes
+for ( var i = 0; i < routes.length; i++ ) {
+	var method = routes[ i ][ "method" ];
+	var path = routes[ i ][ "path" ];
+	var handler = routes[ i ][ "handler" ];
 	app[ method ]( path, handler );
 }
 

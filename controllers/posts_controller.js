@@ -5,11 +5,11 @@
 var Post = require( '../models/post.js' );
 var Util = require( 'util' );
 
-exports.index = function( req, res ){
+exports.index = exports.list_posts = function( req, res ) {
   
-	Post.find( function (err, posts) {
+	Post.find( function ( err, posts ) {
 		
-		res.render('index', { title: 'CrushFlow', posts: posts.reverse() } );
+		res.render( 'index', { title: 'CrushFlow', posts: posts.reverse() } );
 		
 	} );
 
@@ -20,7 +20,7 @@ exports.index = function( req, res ){
  * POST to home page to create new post.
  */	
 
-exports.new_post = function( req, res ) {
+exports.create_post = function( req, res ) {
 	new Post( { title: req.body.post.title, content: req.body.post.content } ).save( function (err) {
 		
 		if ( !err ) {
