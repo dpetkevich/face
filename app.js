@@ -27,7 +27,7 @@ app.configure( 'development', function () {
 } );
 
 app.configure( 'production', function () {
-  app.use(express.errorHandler() ); 
+  app.use(express.errorHandler( { dumpExceptions: true, showStack: true } ) ); 
 	var mongoose_uri = 'mongodb://heroku:crushFlowAdmin@staff.mongohq.com:10084/app1737733';
 	mongoose.connect( mongoose_uri );
 } );
