@@ -7,6 +7,8 @@ var express = require( 'express' )
   , routes = require( './routes' )
 	, mongoose = require( 'mongoose' );
 
+mongoose.connect('mongodb://localhost/crushFlow');
+
 var app = module.exports = express.createServer();
 
 // Configuration
@@ -21,18 +23,12 @@ app.configure(function () {
 });
 
 app.configure( 'development', function () {
-  app.use( express.errorHandler( { dumpExceptions: true, showStack: true } ) );
-	var mongoose_uri = 'mongodb://localhost/crushFlow';
-	mongoose.connect( mongoose_uri );
+  app.use( express.errorHandler( { dumpExceptions: true, showStack: true } ) ); 
 } );
 
 app.configure( 'production', function () {
   app.use(express.errorHandler() ); 
-	var mongoose_uri = 'mongodb://heroku:crushFlowAdmin@staff.mongohq.com:10084/app1737733';
-	mongoose.connect( mongoose_uri );
 } );
-
-
 
 
 // Routes
