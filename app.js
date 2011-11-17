@@ -4,8 +4,8 @@
  */
 
 var express = require( 'express' )
-  , routes = require( './routes' )
-	, mongoose = require( 'mongoose' );
+	, mongoose = require( 'mongoose' )
+	, router = require( './router' );
 
 var app = module.exports = express.createServer();
 
@@ -36,9 +36,13 @@ app.configure( 'production', function () {
 
 
 // Routes
-app.get( '/', routes.index );
-app.post( '/', routes.new_post );
 
+for ( var i = 0; i < router.length; i++ ) {
+	var method = router[ i ][ "method" ];
+	var path = router[ i ][ "path" ];
+	var handler = router[ i ][ "handler" ];
+	app[ method ]( path, handler );
+}
 
 var port = process.env.PORT || 3000;
 

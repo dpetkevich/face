@@ -15,6 +15,11 @@ exports.index = function( req, res ){
 
 };
 
+
+/*
+ * POST to home page to create new post.
+ */	
+
 exports.new_post = function( req, res ) {
 	new Post( { title: req.body.post.title, content: req.body.post.content } ).save( function (err) {
 		
