@@ -18,13 +18,13 @@
   <div id="new_crush_button">Post a Crush</div>
   
   <div id="new_crush_box" style="display:none">
-    <form method="post" action="/">
-      <input id="new_post_title" class="defaultText" value="Title" alt="Title"
-        name="post[title]"/>
-      <textarea id="new_post_body" class="defaultText"
-        alt="omg on cross campus" name="post[content]">omg on cross campus</textarea>
-      <input type="submit" value="Submit!" id="submit_post" />
-    </form>
+
+    <input id="new_post_title" class="defaultText" value="Title" alt="Title"
+      name="post[title]"/>
+    <textarea id="new_post_body" class="defaultText"
+      alt="omg on cross campus" name="post[content]">omg on cross campus</textarea>
+    <button type="submit" value="Submit!" id="submit_post" />
+
   </div>
   
   <% for ( var i = 0; i < posts.length; i++ )  { %>

@@ -20,6 +20,15 @@ $(document).ready(function(){
     
 });
 
+//Create post using ajax
+function ajaxPost() {
+  var title = $( this ).siblings( 'input' ).val();
+  var content = $( this ).siblings( 'textarea' ).val();
+  
+  alert( title );
+  alert( content );
+}
+
 
 //Our insert post function
 function insertNewPost(){
