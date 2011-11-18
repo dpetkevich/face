@@ -4,7 +4,7 @@
  */
 
 var express = require('express')
-  , routes = require('./routes/index.js')
+  , routes = require('./routes.js')
 	, mongoose = require( 'mongoose' );
 
 var app = module.exports = express.createServer();
