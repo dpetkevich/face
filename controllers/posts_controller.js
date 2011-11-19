@@ -27,6 +27,10 @@ module.exports.create_post = function( data, socket ) {
 		if ( !err ) {
 			console.log( 'Success!' );
 			
+			// Emit message to all other sockets
+			socket.broadcast.emit( 'new_post_created', data );
+			
+			// Also emit message to the socket that created it
 			socket.emit( 'new_post_created', data );
 			
 		} else {

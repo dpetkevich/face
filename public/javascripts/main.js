@@ -59,8 +59,11 @@ function createPost( data ) {
 
 // Create post using socket post
 function socketPost( socket ) {
-  var title = $( this ).siblings( 'input' ).val();
-  var content = $( this ).siblings( 'textarea' ).val();
+  console.log('here');
+  var title = $( '#new_crush_box' ).find( 'input' ).val();
+  var content = $( '#new_crush_box' ).find( 'textarea' ).val();
+  console.log('now here');
 
   socket.emit( 'create_post', { title: title, content: content } );
+  console.log( 'finally here' );
 }
