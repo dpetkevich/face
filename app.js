@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -7,7 +6,21 @@ var express = require('express')
   , routes = require('./routes.js')
 	, mongoose = require( 'mongoose' );
 
-var app = module.exports = express.createServer();
+var app = module.exports = express.createServer()
+  , io = require( 'socket.io' ).listen( app );
+  
+var posts_controller = require( './controllers/posts_controller.js' )
+
+io.sockets.on( 'connection', function ( socket ) {
+  
+  socket.on( 'create_post', function ( data ) {
+    
+    console.log(data);
+    
+    posts_controller.create_post( data, socket );
+    
+  } );
+} );
 
 // Configuration
 

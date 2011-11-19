@@ -17,20 +17,22 @@ module.exports.index = exports.list_posts = function( req, res ) {
 
 
 /*
- * POST to home page to create new post.
+ * Handler to create new post
  */	
 
-module.exports.create_post = function( req, res ) {
+module.exports.create_post = function( data, socket ) {
 
-	new Post( { title: req.body.post.title, content: req.body.post.content } ).save( function (err) {
+	new Post( { title: data.title, content: data.content } ).save( function (err) {
 		
 		if ( !err ) {
 			console.log( 'Success!' );
+			
+			socket.emit( 'new_post_created', data );
+			
 		} else {
 			console.log( 'Had an error' + err );
 		}
 		
-		res.redirect( 'back' );
 
 	} );
 
