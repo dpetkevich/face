@@ -31,6 +31,10 @@
     <h2 class="post_title"></h2>
     <p class="post_body"></p>
     <div class="post_time"></div>
+    <div class="coords">
+      <h4 class="lat"/>
+      <h4 class="lon"/>
+    </div>
   </div>
   
   <% for ( var i = 0; i < posts.length; i++ )  { %>
@@ -39,6 +43,9 @@
       <h2 class="post_title"><%= posts[ i ].title %></h2>
       <p class="post_body"><%= posts[ i ].content %></p>
       <div class="post_time"><%= posts[ i ].date_display() %></div>
+      <h4 class="lat"><%= posts[ i ].lat %></h4>
+      <h4 class="lon"><%= posts[ i ].lat %></h4>
+
     </div>
   
   

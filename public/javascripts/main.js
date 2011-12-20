@@ -25,7 +25,20 @@ $(  document).ready( function () {
     } );
     // End placeholder code
     
-
+    if (navigator.geolocation) {
+  /* geolocation is available */
+ 
+  navigator.geolocation.getCurrentPosition(function(position) {
+   var lat = $( '.lat');
+   var lon = $( '.lon');
+   lat.html(position.coords.latitude);
+   lon.html(position.coords.longitude);
+  //alert(position.coords.latitude);
+});
+  
+} else {
+  alert("I'm sorry, but geolocation services are not supported by your browser.");
+}
     
 });
 
