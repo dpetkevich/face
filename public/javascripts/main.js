@@ -76,5 +76,6 @@ function socketPost( socket ) {
   var title = $( '#new_crush_box' ).find( 'input' ).val();
   var content = $( '#new_crush_box' ).find( 'textarea' ).val();
 
+
   socket.emit( 'create_post', { title: title, content: content } );
 }
