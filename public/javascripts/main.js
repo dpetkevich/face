@@ -31,6 +31,7 @@ $(  document).ready( function () {
   navigator.geolocation.getCurrentPosition(function(position) {
    var lat = $( '.lat');
    var lon = $( '.lon');
+   var tolerance = .00001;
    lat.html(position.coords.latitude);
    lon.html(position.coords.longitude);
   //alert(position.coords.latitude);
